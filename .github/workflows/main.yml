@@ -30,9 +30,12 @@ jobs:
       - name: Send mail
         uses: dawidd6/action-send-mail@v2
         with:
+#           # smtp 服务器地址
+#           server_address: smtp.163.com
+#           # smtp 服务器端口
+#           server_port: 465
           # smtp 服务器地址
-          server_address: smtp.163.com
-          # smtp 服务器端口
+          server_address: smtp.gmail.com
           server_port: 465
           username: ${{secrets.MAILUSERNAME}}
           password: ${{secrets.MAILPASSWORD}}
