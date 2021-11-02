@@ -26,28 +26,43 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
+      - name: Send mail ✉️
+          uses: dawidd6/action-send-mail@v2
+          with:
+            # smtp 服务器地址
+            server_address: smtp.163.com
+            # smtp 服务器端口
+            server_port: 465
+            username: ${{secrets.MAILUSERNAME}}
+            password: ${{secrets.MAILPASSWORD}}
+            subject: test Report
+            body: "test"
+            to: xueyongfu@analysys.com.cn
+            from: sanbo
+            content_type: text/html
+            convert_markdown: true
 
-      - name: Send mail
-        uses: dawidd6/action-send-mail@v3
-        with:
-          #          # smtp 服务器地址
-          #          server_address: smtp.gmail.com
-          #          server_port: 465
-          # smtp 服务器地址
-          server_address: smtp.163.com
-          # smtp 服务器端口
-          server_port: 465
-          # 账号密码
-          username: ${{secrets.MAILUSERNAME}}
-          password: ${{secrets.MAILPASSWORD}}
-          # 标题
-          subject: Github Actions job result
-          # 发送的内容
-          body: file://README.md
-          # 目标邮箱
-          to: sanbo.xyz@gmail.com,xueyongfu@analysys.com.cn
-          from: GithubAction # <user@example.com>
-          content_type: text/html
+#      - name: Send mail
+#        uses: dawidd6/action-send-mail@v3
+#        with:
+#          #          # smtp 服务器地址
+#          #          server_address: smtp.gmail.com
+#          #          server_port: 465
+#          # smtp 服务器地址
+#          server_address: smtp.163.com
+#          # smtp 服务器端口
+#          server_port: 465
+#          # 账号密码
+#          username: ${{secrets.MAILUSERNAME}}
+#          password: ${{secrets.MAILPASSWORD}}
+#          # 标题
+#          subject: Github Actions job result
+#          # 发送的内容
+#          body: file://README.md
+#          # 目标邮箱
+#          to: sanbo.xyz@gmail.com,xueyongfu@analysys.com.cn
+#          from: GithubAction # <user@example.com>
+#          content_type: text/html
 
 #
 #      - name: Send mail
