@@ -36,11 +36,8 @@ jobs:
          server_address: smtp.gmail.com
          server_port: 465
 
-         #username: ${{ secrets.MAILUSERNAME }}
-         #password: ${{ secrets.MAILPASSWORD }}
-         
-         username: analysys.sdk@gmail.com
-         password: analysys
+         username: ${{ secrets.MAILUSERNAME }}
+         password: ${{ secrets.MAILPASSWORD }}
 
          subject: Github Actions job result
          to: xueyongfu@analysys.com.cn
