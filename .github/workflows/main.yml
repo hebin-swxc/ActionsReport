@@ -42,7 +42,9 @@ jobs:
          to: ${{ secrets.MAIL_LIST }}
          from: GithubActions
          secure: true
-         body: Build job of ${{github.repository}} completed successfully!
+         body:  |
+           Build job ( ${{ github.job }} ) of ${{ github.repository }} completed successfully! 
+           Commit msg: ${{ github.event.head_commit.message }}
          ignore_cert: true
          priority: low
 
