@@ -36,7 +36,7 @@ jobs:
          password: ${{ secrets.MAILPASSWORD }}
          subject: Github Actions job result
          to: xueyongfu@analysys.com.cn
-         from: Luck # <user@example.com>
+         from: analysys.sdk@gmail.com # <user@example.com>
          secure: true
          body: Build job of ${{github.repository}} completed successfully!
          ignore_cert: true
