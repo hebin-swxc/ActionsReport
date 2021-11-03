@@ -42,9 +42,7 @@ jobs:
          password: ${{ secrets.MAILPASSWORD }}
 
          subject: Github Actions job result
-         to: xueyongfu@analysys.com.cn,chenqingquan@analysys.com.cn
-         cc: chenqingquan@analysys.com.cn
-         bcc: chenqingquan@analysys.com.cn
+         to: ${{ secrets.MAIL_LIST }}
          from: GithubActions
          secure: true
          body: Build job of ${{github.repository}} completed successfully!
