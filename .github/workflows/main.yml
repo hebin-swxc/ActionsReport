@@ -32,11 +32,13 @@ jobs:
         with:
          server_address: smtp.gmail.com
          server_port: 465
+
          username: ${{ secrets.MAILUSERNAME }}
          password: ${{ secrets.MAILPASSWORD }}
+
          subject: Github Actions job result
          to: xueyongfu@analysys.com.cn
-         from: analysys.sdk@gmail.com # <user@example.com>
+         from: Luke Skywalker
          secure: true
          body: Build job of ${{github.repository}} completed successfully!
          ignore_cert: true
