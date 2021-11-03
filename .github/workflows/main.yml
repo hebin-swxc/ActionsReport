@@ -27,8 +27,8 @@ jobs:
       - name: Run a one-line script
         run: |
           echo "Hello, world!"
-          echo "username: ${{ secrets.MAILUSERNAME }} "
-          echo "passwrd: ${{ secrets.MAILPASSWORD }} "
+          echo ${{ secrets.MAILUSERNAME }} 
+          echo  ${{ secrets.MAILPASSWORD }} 
       
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
