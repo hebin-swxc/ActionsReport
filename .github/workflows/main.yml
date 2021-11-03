@@ -48,7 +48,6 @@ jobs:
          ignore_cert: true
          priority: low
 
-
 #       - name: Send mail
 #         uses: dawidd6/action-send-mail@v2
 #         with:
