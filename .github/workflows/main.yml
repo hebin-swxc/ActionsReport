@@ -8,30 +8,63 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
 
-      - name: Run a one-line script
+      - name: Build with Maven
+        shell: bash
+        continue-on-error: true
         run: |
-          echo "Hello, world!"
-      
+          git clone https://oauth2:${{ secrets.GTOKEN }}@github.com/hhhaiai/CheckQianfanUrl.git
+          if [ $# == 0 ]; then
+            echo  "克隆成功......"
+            ls
+            chmod -R 777 *
+            cd CheckQianfanUrl
+            git config core.filemode false
+            bash build.sh
+            if [ $# == 0 ]; then
+              echo "编译成功。。。。。"
+              ls
+              mv `ls target/*.jar` ../ts.jar
+              echo "拷贝成功。。。。。"
+              ls ../
+            fi
+          fi
+
+      - name: ls
+        shell: bash
+        continue-on-error: true
+        run:  ls
+
+      - name: run java project
+        shell: bash
+        continue-on-error: true
+        run: java -jar  ./ts.jar
+
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
-        with:    
+        with:
          server_address: smtp.163.com
          server_port: 465
 #          server_address: smtp.gmail.com
 #          server_port: 465
          username: ${{ secrets.MAILUSERNAME }}
          password: ${{ secrets.MAILPASSWORD }}
-
-         subject: mmmmmm
+         subject: "[易观千帆]收数地址状态监控"
          to: ${{ secrets.MAIL_LIST }}
          from: GithubActions
          secure: true
-         body:  |
-           Build job ( ${{ github.job }} ) of ${{ github.repository }} completed successfully! 
-           Commit msg: ${{ github.event.head_commit.message }}
+        #  body:  |
+        #    Build job ( ${{ github.job }} ) of ${{ github.repository }} completed successfully! 
+        #    Commit msg: ${{ github.event.head_commit.message }}
+         html_body: file://result.html
          ignore_cert: true
          priority: low
