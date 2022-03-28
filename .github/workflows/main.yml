@@ -7,7 +7,7 @@ on:
     branches: [ main ]
   schedule:
     #   分 时 日 月 周
-    - cron: '1 */8 * * *'
+    - cron: '1 */4 * * *'
 
 jobs:
   build:
