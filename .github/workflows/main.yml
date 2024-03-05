@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
-    #   分 时 日 月 周
+    #    分 时 日 月 周
     - cron: '*/1 */8 * * *'
 
 jobs:
