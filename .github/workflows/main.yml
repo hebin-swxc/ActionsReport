@@ -67,7 +67,7 @@ jobs:
          subject: "[易观千帆]收数地址状态监控"
          to: ${{ secrets.MAIL_LIST }}
          from: GithubActions
-         secure: true
+         secure: false
         #  body:  |
         #    Build job ( ${{ github.job }} ) of ${{ github.repository }} completed successfully! 
         #    Commit msg: ${{ github.event.head_commit.message }}
