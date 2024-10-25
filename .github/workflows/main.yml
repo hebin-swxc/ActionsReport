@@ -61,13 +61,13 @@ jobs:
 #          server_address: smtp.gmail.com
 #          server_port: 465
          server_address: smtp.analysys.com.cn
-         server_port: 25
+         server_port: 587
          username: ${{ secrets.MAILUSERNAME }}
          password: ${{ secrets.MAILPASSWORD }}
          subject: "[易观千帆]收数地址状态监控"
          to: ${{ secrets.MAIL_LIST }}
          from: GithubActions
-         secure: false
+         secure: true
         #  body:  |
         #    Build job ( ${{ github.job }} ) of ${{ github.repository }} completed successfully! 
         #    Commit msg: ${{ github.event.head_commit.message }}
