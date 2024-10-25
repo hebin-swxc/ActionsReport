@@ -26,8 +26,6 @@ jobs:
         shell: bash
         continue-on-error: true
         run: |
-          export NODE_TLS_REJECT_UNAUTHORIZED="0"
-          export NODE_TLS_MIN_PROTOCOL_VERSION="TLSv1.2"
           git clone https://oauth2:${{ secrets.GTOKEN }}@github.com/analysys-sdk/CheckQianfanUrl.git
           if [ $# == 0 ]; then
             echo  "克隆成功......"
